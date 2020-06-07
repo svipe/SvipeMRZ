@@ -1,0 +1,29 @@
+PODS:
+  - QKMRZParser (1.0.1)
+  - SwiftyTesseract (2.2.2)
+
+DEPENDENCIES:
+  - QKMRZParser
+  - SwiftyTesseract (from `https://github.com/svipe/SwiftyTesseract.git`, branch `master`)
+
+SPEC REPOS:
+  trunk:
+    - QKMRZParser
+
+EXTERNAL SOURCES:
+  SwiftyTesseract:
+    :branch: :master
+    :git: https://github.com/svipe/SwiftyTesseract.git
+
+CHECKOUT OPTIONS:
+  SwiftyTesseract:
+    :commit: f619483eae4e57a53f710989389bf6ab93d9e19f
+    :git: https://github.com/svipe/SwiftyTesseract.git
+
+SPEC CHECKSUMS:
+  QKMRZParser: 07921dbffa7e4064406113731bc0f1f5e6210bce
+  SwiftyTesseract: a05d2c6771872f203a9ba65055cb2a8b6a385552
+
+PODFILE CHECKSUM: c01d32d758ce71931df00cd2c99ebf78e1914b40
+
+COCOAPODS: 1.9.1

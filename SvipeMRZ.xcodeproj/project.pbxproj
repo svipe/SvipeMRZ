@@ -6,12 +6,25 @@
 	objectVersion = 51;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0CC1E902248D1D0C00362863 /* Aggregator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0CC1E903248D1D0D00362863 /* Build configuration list for PBXAggregateTarget "Aggregator" */;
+			buildPhases = (
+				0CC1E906248D1D1700362863 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Aggregator;
+			productName = Aggregator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		0B1FF9F7B7CD41E6F57D371A /* Pods_SvipeMRZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2211582CFA9FBF59D57985EF /* Pods_SvipeMRZ.framework */; };
 		0C46E021248BF0350024D31C /* SvipeMRZ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C46E017248BF0350024D31C /* SvipeMRZ.framework */; };
 		0C46E026248BF0350024D31C /* SvipeMRZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C46E025248BF0350024D31C /* SvipeMRZTests.swift */; };
 		0C46E028248BF0350024D31C /* MRZScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C46E01A248BF0350024D31C /* MRZScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0C46E032248BF0700024D31C /* SvipeMRZ.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 0C46E031248BF06F0024D31C /* SvipeMRZ.podspec */; };
 		0C46E037248BF0F50024D31C /* QKMRZScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C46E033248BF0F50024D31C /* QKMRZScanResult.swift */; };
 		0C46E038248BF0F50024D31C /* LuminanceThresholdFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C46E034248BF0F50024D31C /* LuminanceThresholdFilter.swift */; };
 		0C46E039248BF0F50024D31C /* QKMRZScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C46E035248BF0F50024D31C /* QKMRZScannerView.swift */; };
@@ -41,7 +54,6 @@
 		0C46E020248BF0350024D31C /* SvipeMRZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SvipeMRZTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C46E025248BF0350024D31C /* SvipeMRZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvipeMRZTests.swift; sourceTree = "<group>"; };
 		0C46E027248BF0350024D31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C46E031248BF06F0024D31C /* SvipeMRZ.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SvipeMRZ.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		0C46E033248BF0F50024D31C /* QKMRZScanResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKMRZScanResult.swift; sourceTree = "<group>"; };
 		0C46E034248BF0F50024D31C /* LuminanceThresholdFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LuminanceThresholdFilter.swift; sourceTree = "<group>"; };
 		0C46E035248BF0F50024D31C /* QKMRZScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QKMRZScannerView.swift; sourceTree = "<group>"; };
@@ -87,7 +99,6 @@
 		0C46E00D248BF0350024D31C = {
 			isa = PBXGroup;
 			children = (
-				0C46E031248BF06F0024D31C /* SvipeMRZ.podspec */,
 				0C46E019248BF0350024D31C /* SvipeMRZ */,
 				0C46E024248BF0350024D31C /* SvipeMRZTests */,
 				0C46E018248BF0350024D31C /* Products */,
@@ -226,6 +237,9 @@
 					0C46E01F248BF0350024D31C = {
 						CreatedOnToolsVersion = 11.5;
 					};
+					0CC1E902248D1D0C00362863 = {
+						CreatedOnToolsVersion = 11.5;
+					};
 				};
 			};
 			buildConfigurationList = 0C46E011248BF0350024D31C /* Build configuration list for PBXProject "SvipeMRZ" */;
@@ -243,6 +257,7 @@
 			targets = (
 				0C46E016248BF0350024D31C /* SvipeMRZ */,
 				0C46E01F248BF0350024D31C /* SvipeMRZTests */,
+				0CC1E902248D1D0C00362863 /* Aggregator */,
 			);
 		};
 /* End PBXProject section */
@@ -252,7 +267,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C46E032248BF0700024D31C /* SvipeMRZ.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +280,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0CC1E906248D1D1700362863 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\nOUTPUT_FOLDER=${PROJECT_DIR}/dist\n\n# make sure the output directory exists\nmkdir -p \"${OUTPUT_FOLDER}\"\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n# Step 1. Build Device and Simulator versions. This also include the full bitcode generation of framework\n\n#xcodebuild BITCODE_GENERATION_MODE=bitcode OTHER_CFLAGS=\"-fembed-bitcode\" -workspace ${PROJECT_NAME}.xcworkspace -scheme ${PROJECT_NAME} ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" -UseModernBuildSystem=NO clean build\n\n#xcodebuild BITCODE_GENERATION_MODE=bitcode OTHER_CFLAGS=\"-fembed-bitcode\" -workspace ${PROJECT_NAME}.xcworkspace -scheme ${PROJECT_NAME} ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphonesimulator BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" -UseModernBuildSystem=NO clean build\n\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n# Step 3. Copy Swift modules (from iphonesimulator build) to the copied framework directory\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n# Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${OUTPUT_FOLDER}\"\n# Step 6. Convenience step to open the project's directory in Finder\nopen \"${OUTPUT_FOLDER}\"\n";
+		};
 		45E349223C7988BF3A27F152 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -580,6 +611,24 @@
 			};
 			name = Release;
 		};
+		0CC1E904248D1D0D00362863 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22PS7P6M6M;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0CC1E905248D1D0D00362863 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22PS7P6M6M;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -606,6 +655,15 @@
 			buildConfigurations = (
 				0C46E02F248BF0350024D31C /* Debug */,
 				0C46E030248BF0350024D31C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CC1E903248D1D0D00362863 /* Build configuration list for PBXAggregateTarget "Aggregator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CC1E904248D1D0D00362863 /* Debug */,
+				0CC1E905248D1D0D00362863 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
