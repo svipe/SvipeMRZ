@@ -12,33 +12,6 @@ import QKMRZParser
 import AudioToolbox
 import Vision
 
-/*struct MyDataSource: LanguageModelDataSource {
-    let pathToTrainedData: String
-    
-    init() {
-        guard let documentsFolder = try? FileManager.default.url(for: .documentDirectory,
-        in: .userDomainMask,
-        appropriateFor: nil,
-        create: false) else {
-            fatalError()
-        }
-        let bundle = Bundle(for: QKMRZScannerView.self)
-        let tessData = documentsFolder.appendingPathComponent("tessdata")
-        
-        print("tessData \(tessData)")
-        try? FileManager.default.createDirectory(at: tessData, withIntermediateDirectories: true, attributes: nil)
-        // Copy the english training data file from he test applicatinon bundle and copy it to the user documents directory
-        if let path = bundle.url(forResource: "ocrb", withExtension: "traineddata", subdirectory: "tessdata") {
-            print("path \(path)")
-            try? FileManager.default.copyItem(at: path, to: tessData.appendingPathComponent("ocrb.traineddata"))
-        } else {
-            print("could not find ocrb.traineddata")
-        }
-        pathToTrainedData = tessData.path
-        print("pathToTrainedData \(pathToTrainedData)")
-    }
-}*/
-
 public protocol QKMRZScannerViewDelegate: class {
     func mrzScannerView(_ mrzScannerView: QKMRZScannerView, didFind scanResult: QKMRZScanResult)
 }
@@ -62,6 +35,7 @@ public class QKMRZScannerView: UIView {
     fileprivate var isScanningPaused = false
     fileprivate var observer: NSKeyValueObservation?
     fileprivate var camera: AVCaptureDevice?
+    fileprivate var flashButton: UIButton!
 
     @objc public dynamic var isScanning = false
 
@@ -106,19 +80,21 @@ public class QKMRZScannerView: UIView {
     }
     
     // MARK: Scanning
+
     public func startScanning() {
-        
-        
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(toggleFlash))
+        addGestureRecognizer(tap)
+
         guard !captureSession.inputs.isEmpty else {
             return
         }
-        
-        
+
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.captureSession.startRunning()
             DispatchQueue.main.async { [weak self] in
                 self?.adjustVideoPreviewLayerFrame()
-                self?.turnOnFlash()
+                //self?.turnOnFlash()
             }
         }
     }
@@ -219,18 +195,37 @@ public class QKMRZScannerView: UIView {
         addAppObservers()
     }
 
+    var isFlash = false
+
+    @objc
+    func toggleFlash() {
+        print("toggleFlash() \(isFlash)")
+        if isFlash {
+            turnOffFlash()
+            isFlash = false
+        } else {
+            turnOnFlash()
+            isFlash = true
+        }
+    }
+
     public func turnOffFlash() {
         guard let camera = self.camera, camera.hasTorch else { return }
         withDeviceLock(on: camera) {
             $0.torchMode = .off
         }
+        DispatchQueue.main.async {
+            self.flashButton.setImage(UIImage(systemName: "bolt.slash.fill"), for: .normal)
+        }
     }
-    
+
     public func turnOnFlash() {
-        
         guard let camera = self.camera, camera.hasTorch else { return }
             withDeviceLock(on: camera) {
                 try? $0.setTorchModeOn(level: AVCaptureDevice.maxAvailableTorchLevel)
+        }
+        DispatchQueue.main.async {
+            self.flashButton.setImage(UIImage(systemName: "bolt.fill"), for: .normal)
         }
     }
 
@@ -238,29 +233,28 @@ public class QKMRZScannerView: UIView {
         backgroundColor = .black
     }
 
-
     fileprivate func addCutoutView() {
+        flashButton = UIButton()
+        flashButton.tintColor = .white
+        flashButton.setImage(UIImage(systemName: "bolt.slash.fill"), for: .normal)
+        addSubview(flashButton)
 
-        /*addSubview(flashButton)
         flashButton.translatesAutoresizingMaskIntoConstraints = false
         flashButton.isEnabled = true
-        flashButton.isUserInteractionEnabled = true */
+        flashButton.isUserInteractionEnabled = true
 
         cutoutView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(cutoutView)
-        
+
         NSLayoutConstraint.activate([
             cutoutView.topAnchor.constraint(equalTo: topAnchor),
             cutoutView.bottomAnchor.constraint(equalTo: bottomAnchor),
             cutoutView.leftAnchor.constraint(equalTo: leftAnchor),
             cutoutView.rightAnchor.constraint(equalTo: rightAnchor),
-
-            /*flashButton.widthAnchor.constraint(equalToConstant: 100.0),
-            flashButton.heightAnchor.constraint(equalToConstant: 100.0),
-            flashButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100),
-            flashButton.centerXAnchor.constraint(equalTo: centerXAnchor),*/
-
+            flashButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            flashButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -8)
         ])
+        
     }
 
 
