@@ -5,7 +5,7 @@ target 'SvipeMRZ' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'QKMRZParser'
-  pod 'SwiftyTesseract', :git => 'https://github.com/svipe/SwiftyTesseract.git', :branch => :master
+  pod 'SwiftyTesseract', :git => 'https://gitlab.com/svipe/frontend-ios/SwiftyTesseract.git', :branch => :master
   target 'SvipeMRZTests' do
     # Pods for testing
   end

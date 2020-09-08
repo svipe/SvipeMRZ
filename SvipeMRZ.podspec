@@ -3,9 +3,9 @@ Pod::Spec.new do |s|
   s.version  = '0.0.1'
   s.license  = 'All Rights Reserved'
   s.summary  = 'Scan Machine Readable Zone'
-  s.homepage = 'https://github.com/svipe/SvipeMRZ'
+  s.homepage = 'https://gitlab.com/svipe/frontend-ios/SvipeMRZ'
   s.author   = 'Svipe AB'
-  s.source   = { :git => 'https://github.com/svipe/SvipeMRZ.git', :tag => s.version }
+  s.source   = { :git => 'https://gitlab.com/svipe/frontend-ios/SvipeMRZ.git', :tag => s.version }
   s.requires_arc = true
   s.source_files = 'SvipeMRZ/**/*.{h,m,swift}'
   s.resources = "SvipeMRZ/**/*.{storyboard,xib,xcassets,strings,json,traineddata}"
