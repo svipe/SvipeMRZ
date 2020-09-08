@@ -4,7 +4,7 @@ PODS:
 
 DEPENDENCIES:
   - QKMRZParser
-  - SwiftyTesseract (from `https://gitlab.com/svipe/frontend-ios/SwiftyTesseract.git`, branch `master`)
+  - SwiftyTesseract (from `git@gitlab.com:svipe/frontend-ios/SwiftyTesseract.git`, branch `master`)
 
 SPEC REPOS:
   trunk:
@@ -13,12 +13,12 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   SwiftyTesseract:
     :branch: :master
-    :git: https://gitlab.com/svipe/frontend-ios/SwiftyTesseract.git
+    :git: git@gitlab.com:svipe/frontend-ios/SwiftyTesseract.git
 
 CHECKOUT OPTIONS:
   SwiftyTesseract:
     :commit: f619483eae4e57a53f710989389bf6ab93d9e19f
-    :git: https://gitlab.com/svipe/frontend-ios/SwiftyTesseract.git
+    :git: git@gitlab.com:svipe/frontend-ios/SwiftyTesseract.git
 
 SPEC CHECKSUMS:
   QKMRZParser: 07921dbffa7e4064406113731bc0f1f5e6210bce
